@@ -8,7 +8,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tcw181b-cm.png?downloads=true)](https://nodei.co/npm/iobroker.tcw181b-cm/)
 
-**Tests:** ![Test and Release](https://github.com/michikrocka/ioBroker.tcw181b-cm/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test and Release](https://github.com/MichiKrocka/ioBroker.tcw181b-cm/workflows/Test%20and%20Release/badge.svg)
 
 ## tcw181b-cm adapter for ioBroker
 
