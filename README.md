@@ -11,8 +11,8 @@
 **Tests:** ![Test and Release](https://github.com/MichiKrocka/ioBroker.tcw181b-cm/workflows/Test%20and%20Release/badge.svg)
 
 ## tcw181b-cm adapter for ioBroker
-
-Integrate TCW181B-CM
+### 0.0.1 (02.08.2023)
+- Integrate TCW181B-CM
 
 ## Changelog
 <!--
