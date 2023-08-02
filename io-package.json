@@ -1,0 +1,89 @@
+{
+    "common": {
+        "name": "tcw181b-cm",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "uk": "Початкова версія",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "TERACOM Digital I/O",
+        "titleLang": {
+            "en": "TERACOM Digital I/O",
+            "de": "TERACOM Digital I/O",
+            "ru": "Цифровой ввод/вывод TERACOM",
+            "pt": "E/S digital TERACOM",
+            "nl": "TERACOM digitale I/O",
+            "fr": "E/S numériques TERACOM",
+            "it": "I/O digitali TERACOM",
+            "es": "E/S digital TERACOM",
+            "pl": "Cyfrowe wejścia/wyjścia TERACOM",
+            "uk": "Цифровий вхід/вихід TERACOM",
+            "zh-cn": "TERACOM 数字 I/O"
+        },
+        "desc": {
+            "en": "Integrate TCW181B-CM",
+            "de": "Integrieren Sie TCW181B-CM",
+            "ru": "Интеграция TCW181B-CM",
+            "pt": "Integrar TCW181B-CM",
+            "nl": "Integreer TCW181B-CM",
+            "fr": "Intégrer TCW181B-CM",
+            "it": "Integra TCW181B-CM",
+            "es": "Integrar TCW181B-CM",
+            "pl": "Zintegruj TCW181B-CM",
+            "uk": "Інтеграція TCW181B-CM",
+            "zh-cn": "集成TCW181B-CM"
+        },
+        "authors": [
+            "Michael Krocka <michael.krocka@gmail.com>"
+        ],
+        "keywords": [
+            "TERACOM",
+            "homeserver",
+            "IO"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "tcw181b-cm.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/michikrocka/ioBroker.tcw181b-cm/main/admin/tcw181b-cm.png",
+        "readme": "https://github.com/michikrocka/ioBroker.tcw181b-cm/blob/main/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "iot-systems",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "poll",
+        "adminUI": {
+            "config": "materialize"
+        },
+        "eraseOnUpload": true,
+        "dependencies": [
+            {
+                "js-controller": ">=3.3.22"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=5.0.0"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
