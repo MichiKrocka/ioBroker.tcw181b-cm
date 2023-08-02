@@ -1,0 +1,783 @@
+Cache verified and compressed (~/.npm/_cacache):
+Content verified: 0 (0 bytes)
+Index entries: 0
+Finished in 0.037s
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 http://raspbian.raspberrypi.org/raspbian buster InRelease
+Hit:2 http://archive.raspberrypi.org/debian buster InRelease
+Hit:3 https://deb.nodesource.com/node_12.x buster InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+All packages are up to date.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  nodejs*
+0 upgraded, 0 newly installed, 1 to remove and 0 not upgraded.
+After this operation, 85.9 MB disk space will be freed.
+(Reading database ... 49755 files and directories currently installed.)
+Removing nodejs (12.22.5-1nodesource1) ...
+Processing triggers for man-db (2.8.5-2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+## Installing the NodeSource Node.js 12.x repo...
+
+
+## Populating apt-get cache...
+
++ apt-get update
+Hit:1 http://raspbian.raspberrypi.org/raspbian buster InRelease
+Hit:2 http://archive.raspberrypi.org/debian buster InRelease
+Hit:3 https://deb.nodesource.com/node_12.x buster InRelease
+Reading package lists...
+
+## Confirming "buster" is supported...
+
++ curl -sLf -o /dev/null 'https://deb.nodesource.com/node_12.x/dists/buster/Release'
+
+## Adding the NodeSource signing key to your keyring...
+
++ curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null
+
+## Creating apt sources list file for the NodeSource Node.js 12.x repo...
+
++ echo 'deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_12.x buster main' > /etc/apt/sources.list.d/nodesource.list
++ echo 'deb-src [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_12.x buster main' >> /etc/apt/sources.list.d/nodesource.list
+
+## Running `apt-get update` for you...
+
++ apt-get update
+Hit:1 http://raspbian.raspberrypi.org/raspbian buster InRelease
+Hit:2 http://archive.raspberrypi.org/debian buster InRelease
+Hit:3 https://deb.nodesource.com/node_12.x buster InRelease
+Reading package lists...
+
+## Run `sudo apt-get install -y nodejs` to install Node.js 12.x and npm
+## You may also need development tools to build native addons:
+     sudo apt-get install gcc g++ make
+## To install the Yarn package manager, run:
+     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+     echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+     sudo apt-get update && sudo apt-get install yarn
+
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  nodejs
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin:
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/16.0 MB of archives.
+After this operation, 85.9 MB of additional disk space will be used.
+Selecting previously unselected package nodejs.
+(Reading database ... 44869 files and directories currently installed.)
+Preparing to unpack .../nodejs_12.22.5-1nodesource1_armhf.deb ...
+Unpacking nodejs (12.22.5-1nodesource1) ...
+Setting up nodejs (12.22.5-1nodesource1) ...
+Processing triggers for man-db (2.8.5-2) ...
+library: loaded
+Library version=2021-08-05
+
+==========================================================================
+
+    Welcome to the ioBroker installer!
+    Installer version: 2021-06-18
+
+    You might need to enter your password a couple of times.
+
+==========================================================================
+
+
+==========================================================================
+    Installing prerequisites (1/4)
+==========================================================================
+
+Hit:1 http://archive.raspberrypi.org/debian buster InRelease
+Hit:2 https://deb.nodesource.com/node_12.x buster InRelease
+Hit:3 http://raspbian.raspberrypi.org/raspbian buster InRelease
+Reading package lists...
+Changing npm registry to https://registry.npmjs.org
+Installed gcc-c++
+
+==========================================================================
+    Creating ioBroker user and directory (2/4)
+==========================================================================
+
+Created /etc/sudoers.d/iobroker
+Directory /opt/iobroker created
+
+==========================================================================
+    Installing ioBroker (3/4)
+==========================================================================
+
+In file included from ../../nan/nan.h:58,
+                 from ../src/main.cpp:3:
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:736:43: warning: cast between incompatible function types from ÔÇÿvoid (*)(v8::Local<v8::Object>)ÔÇÖ to ÔÇÿnode::addon_register_funcÔÇÖ {aka ÔÇÿvoid (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)ÔÇÖ} [-Wcast-function-type]
+       (node::addon_register_func) (regfunc),                          \
+                                           ^
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:770:3: note: in expansion of macro ÔÇÿNODE_MODULE_XÔÇÖ
+   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+   ^~~~~~~~~~~~~
+../src/main.cpp:42:1: note: in expansion of macro ÔÇÿNODE_MODULEÔÇÖ
+ NODE_MODULE(diskusage, Init)
+ ^~~~~~~~~~~
+In file included from ../../nan/nan.h:58,
+                 from ../src/unix_dgram.cc:5:
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:736:43: warning: cast between incompatible function types from ÔÇÿvoid (*)(v8::Local<v8::Object>)ÔÇÖ to ÔÇÿnode::addon_register_funcÔÇÖ {aka ÔÇÿvoid (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)ÔÇÖ} [-Wcast-function-type]
+       (node::addon_register_func) (regfunc),                          \
+                                           ^
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:770:3: note: in expansion of macro ÔÇÿNODE_MODULE_XÔÇÖ
+   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+   ^~~~~~~~~~~~~
+../src/unix_dgram.cc:404:1: note: in expansion of macro ÔÇÿNODE_MODULEÔÇÖ
+ NODE_MODULE(unix_dgram, Initialize)
+ ^~~~~~~~~~~
+../src/serialport.cpp: In function ÔÇÿNan::NAN_METHOD_RETURN_TYPE Open(Nan::NAN_METHOD_ARGS_TYPE)ÔÇÖ:
+../src/serialport.cpp:78:69: warning: cast between incompatible function types from ÔÇÿvoid (*)(uv_work_t*)ÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*)ÔÇÖ} to ÔÇÿuv_after_work_cbÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*, int)ÔÇÖ} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Open, (uv_after_work_cb)EIO_AfterOpen);
+                                                                     ^~~~~~~~~~~~~
+../src/serialport.cpp: In function ÔÇÿNan::NAN_METHOD_RETURN_TYPE Update(Nan::NAN_METHOD_ARGS_TYPE)ÔÇÖ:
+../src/serialport.cpp:135:71: warning: cast between incompatible function types from ÔÇÿvoid (*)(uv_work_t*)ÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*)ÔÇÖ} to ÔÇÿuv_after_work_cbÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*, int)ÔÇÖ} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Update, (uv_after_work_cb)EIO_AfterUpdate);
+                                                                       ^~~~~~~~~~~~~~~
+../src/serialport.cpp: In function ÔÇÿNan::NAN_METHOD_RETURN_TYPE Close(Nan::NAN_METHOD_ARGS_TYPE)ÔÇÖ:
+../src/serialport.cpp:175:70: warning: cast between incompatible function types from ÔÇÿvoid (*)(uv_work_t*)ÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*)ÔÇÖ} to ÔÇÿuv_after_work_cbÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*, int)ÔÇÖ} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Close, (uv_after_work_cb)EIO_AfterClose);
+                                                                      ^~~~~~~~~~~~~~
+../src/serialport.cpp: In function ÔÇÿNan::NAN_METHOD_RETURN_TYPE Flush(Nan::NAN_METHOD_ARGS_TYPE)ÔÇÖ:
+../src/serialport.cpp:215:70: warning: cast between incompatible function types from ÔÇÿvoid (*)(uv_work_t*)ÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*)ÔÇÖ} to ÔÇÿuv_after_work_cbÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*, int)ÔÇÖ} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Flush, (uv_after_work_cb)EIO_AfterFlush);
+                                                                      ^~~~~~~~~~~~~~
+../src/serialport.cpp: In function ÔÇÿNan::NAN_METHOD_RETURN_TYPE Set(Nan::NAN_METHOD_ARGS_TYPE)ÔÇÖ:
+../src/serialport.cpp:271:68: warning: cast between incompatible function types from ÔÇÿvoid (*)(uv_work_t*)ÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*)ÔÇÖ} to ÔÇÿuv_after_work_cbÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*, int)ÔÇÖ} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Set, (uv_after_work_cb)EIO_AfterSet);
+                                                                    ^~~~~~~~~~~~
+../src/serialport.cpp: In function ÔÇÿNan::NAN_METHOD_RETURN_TYPE Get(Nan::NAN_METHOD_ARGS_TYPE)ÔÇÖ:
+../src/serialport.cpp:316:68: warning: cast between incompatible function types from ÔÇÿvoid (*)(uv_work_t*)ÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*)ÔÇÖ} to ÔÇÿuv_after_work_cbÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*, int)ÔÇÖ} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Get, (uv_after_work_cb)EIO_AfterGet);
+                                                                    ^~~~~~~~~~~~
+../src/serialport.cpp: In function ÔÇÿNan::NAN_METHOD_RETURN_TYPE GetBaudRate(Nan::NAN_METHOD_ARGS_TYPE)ÔÇÖ:
+../src/serialport.cpp:366:76: warning: cast between incompatible function types from ÔÇÿvoid (*)(uv_work_t*)ÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*)ÔÇÖ} to ÔÇÿuv_after_work_cbÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*, int)ÔÇÖ} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_GetBaudRate, (uv_after_work_cb)EIO_AfterGetBaudRate);
+                                                                            ^~~~~~~~~~~~~~~~~~~~
+../src/serialport.cpp: In function ÔÇÿNan::NAN_METHOD_RETURN_TYPE Drain(Nan::NAN_METHOD_ARGS_TYPE)ÔÇÖ:
+../src/serialport.cpp:412:70: warning: cast between incompatible function types from ÔÇÿvoid (*)(uv_work_t*)ÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*)ÔÇÖ} to ÔÇÿuv_after_work_cbÔÇÖ {aka ÔÇÿvoid (*)(uv_work_s*, int)ÔÇÖ} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Drain, (uv_after_work_cb)EIO_AfterDrain);
+                                                                      ^~~~~~~~~~~~~~
+../src/serialport.cpp: At global scope:
+../src/serialport.cpp:433:28: warning: unnecessary parentheses in declaration of ÔÇÿToParityEnumÔÇÖ [-Wparentheses]
+ SerialPortParity NAN_INLINE(ToParityEnum(const v8::Local<v8::String>& v8str)) {
+                            ^
+../src/serialport.cpp:452:30: warning: unnecessary parentheses in declaration of ÔÇÿToStopBitEnumÔÇÖ [-Wparentheses]
+ SerialPortStopBits NAN_INLINE(ToStopBitEnum(double stopBits)) {
+                              ^
+In file included from ../../../nan/nan.h:58,
+                 from ../src/./serialport.h:13,
+                 from ../src/serialport.cpp:1:
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:736:43: warning: cast between incompatible function types from ÔÇÿvoid (*)(Nan::ADDON_REGISTER_FUNCTION_ARGS_TYPE)ÔÇÖ {aka ÔÇÿvoid (*)(v8::Local<v8::Object>)ÔÇÖ} to ÔÇÿnode::addon_register_funcÔÇÖ {aka ÔÇÿvoid (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)ÔÇÖ} [-Wcast-function-type]
+       (node::addon_register_func) (regfunc),                          \
+                                           ^
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:770:3: note: in expansion of macro ÔÇÿNODE_MODULE_XÔÇÖ
+   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+   ^~~~~~~~~~~~~
+../src/serialport.cpp:486:1: note: in expansion of macro ÔÇÿNODE_MODULEÔÇÖ
+ NODE_MODULE(serialport, init);
+ ^~~~~~~~~~~
+../src/serialport_unix.cpp: In function ÔÇÿint setup(int, OpenBaton*)ÔÇÖ:
+../src/serialport_unix.cpp:176:60: warning: ÔÇÿ%sÔÇÖ directive output may be truncated writing up to 1023 bytes into a region of size 1005 [-Wformat-truncation=]
+     snprintf(data->errorString, sizeof(data->errorString), "Error %s Cannot open %s", strerror(errno), data->path);
+                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+../src/serialport_unix.cpp:176:13: note: ÔÇÿsnprintfÔÇÖ output 20 or more bytes (assuming 1043) into a destination of size 1024
+     snprintf(data->errorString, sizeof(data->errorString), "Error %s Cannot open %s", strerror(errno), data->path);
+     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/serialport_unix.cpp: In function ÔÇÿvoid EIO_Open(uv_work_t*)ÔÇÖ:
+../src/serialport_unix.cpp:86:60: warning: ÔÇÿ%sÔÇÖ directive output may be truncated writing up to 1023 bytes into a region of size 1003 [-Wformat-truncation=]
+     snprintf(data->errorString, sizeof(data->errorString), "Error: %s, cannot open %s", strerror(errno), data->path);
+                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/serialport_unix.cpp:86:13: note: ÔÇÿsnprintfÔÇÖ output 22 or more bytes (assuming 1045) into a destination of size 1024
+     snprintf(data->errorString, sizeof(data->errorString), "Error: %s, cannot open %s", strerror(errno), data->path);
+     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+==========================================================================
+    Finalizing installation (4/4)
+==========================================================================
+
+Enabling autostart...
+Autostart enabled!
+Fixing directory permissions...
+
+==========================================================================
+
+    ioBroker was installed successfully
+    Open http://192.168.178.86:8081 in a browser and start configuring!
+
+==========================================================================
+
+
+You need to re-login before doing anything else on the console!
+
+npm WARN invalid config prefix=true
+npm WARN invalid config Must be a valid filesystem path
+
+> iobroker.js-controller@3.3.15 preinstall /home/pi/node_modules/iobroker.js-controller
+> node lib/preinstallCheck.js
+
+NPM version: 6.14.14
+
+> iobroker.js-controller@3.3.15 install /home/pi/node_modules/iobroker.js-controller
+> node iobroker.js setup first
+
+object _design/custom updated
+object _design/system updated
+←[31m
+ATTENTION: Error reporting via Sentry will be activated on next start of ioBroker
+←[33m
+ioBroker wants to make sure to deliver the most stable smart home system.
+To allow this we decided to implement an automatic error and crash reporting solution into the js-controller and also into adapters.
+
+THIS REPORTING WILL BE ENABLED WITH THE NEXT START OF YOUR IOBROKER!
+
+For any error that leads to the crash of the js-controller or one of the relevant adapters the error details are send to a server. For the js-controller and core adapters this server is located and operated in germany. For community adapters please check the Github Readme of the affected adapter for details which Sentry server is used.
+
+If you want to disable the error reporting you can use the command
+'iobroker plugin disable sentry'
+This command will also make sure that no adapter that runs on this host will send crash reporting data to sentry.
+
+←[0m
+npm WARN saveError ENOENT: no such file or directory, open '/home/pi/package.json'
+npm WARN enoent ENOENT: no such file or directory, open '/home/pi/package.json'
+npm WARN pi No description
+npm WARN pi No repository field.
+npm WARN pi No README data
+npm WARN pi No license field.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"arm"})
+
++ iobroker.js-controller@3.3.15
+updated 1 package and audited 480 packages in 12.851s
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+found 3 high severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
+object 0_userdata.0.example_state yet exists
+object 0_userdata.0 yet exists
+object alias.0 yet exists
+object system.certificates yet exists
+object system.repositories yet exists
+object system.config yet exists
+object enum.functions yet exists
+object enum.rooms yet exists
+object system.group.user yet exists
+object system.group.administrator yet exists
+object _design/custom updated
+object _design/system updated
+
+The following notifications happened during sync:
+- Ignoring Directory "hm-rega" because officially not created as meta object. Please remove directory!
+
+Delete adapter "admin"
+host.raspberrypi Counted 1 instances of admin
+host.raspberrypi Counted 4 meta of admin
+host.raspberrypi Counted 1 adapter for admin
+host.raspberrypi Counted 1 channels of admin
+host.raspberrypi Counted 11 states of admin
+host.raspberrypi Counted 16 states of system.adapter.admin
+host.raspberrypi Counted 10 states (io.admin.*) from states
+host.raspberrypi Counted 18 states (system.adapter.admin.*) from states
+host.raspberrypi Counted 1 objects of admin
+host.raspberrypi file admin.admin deleted
+host.raspberrypi object admin deleted
+host.raspberrypi object admin.admin deleted
+host.raspberrypi Deleting 35 object(s).
+host.raspberrypi Deleting 28 state(s).
+npm uninstall iobroker.admin --loglevel error --prefix "/opt/iobroker" (System call)
+NPM version: 6.14.14
+npm install iobroker.admin@5.1.23 --loglevel error --prefix "/opt/iobroker" (System call)
+host.raspberrypi install adapter admin
+upload [14] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/words.js words.js application/javascript
+upload [13] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/jsonConfig.json jsonConfig.json application/json
+upload [12] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/index_m.html index_m.html text/html
+upload [11] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/index.html index.html text/html
+upload [10] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/zh-cn/translations.json i18n/zh-cn/translations.json application/json
+upload [9] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/ru/translations.json i18n/ru/translations.json application/json
+upload [8] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/pt/translations.json i18n/pt/translations.json application/json
+upload [7] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/pl/translations.json i18n/pl/translations.json application/json
+upload [6] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/nl/translations.json i18n/nl/translations.json application/json
+upload [5] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/it/translations.json i18n/it/translations.json application/json
+upload [4] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/fr/translations.json i18n/fr/translations.json application/json
+upload [3] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/es/translations.json i18n/es/translations.json application/json
+upload [2] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/en/translations.json i18n/en/translations.json application/json
+upload [1] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/i18n/de/translations.json i18n/de/translations.json application/json
+upload [0] admin.admin /opt/iobroker/node_modules/iobroker.admin/admin/admin.png admin.png image/png
+host.raspberrypi object system.adapter.admin created/updated
+host.raspberrypi create instance admin
+host.raspberrypi object admin.0.info.updatesList created
+host.raspberrypi object admin.0.info.newsLastId created
+host.raspberrypi object admin.0.info.newsETag created
+host.raspberrypi object admin.0.info.newsFeed created
+host.raspberrypi object admin.0.info.connection created
+host.raspberrypi object admin.0 created
+host.raspberrypi object admin.0.info created
+host.raspberrypi object system.adapter.admin.upload created
+host.raspberrypi object system.adapter.admin.0.logLevel created
+host.raspberrypi object system.adapter.admin.0.sigKill created
+host.raspberrypi object system.adapter.admin.0.eventLoopLag created
+host.raspberrypi object system.adapter.admin.0.outputCount created
+host.raspberrypi object system.adapter.admin.0.inputCount created
+host.raspberrypi object system.adapter.admin.0.uptime created
+host.raspberrypi object system.adapter.admin.0.memRss created
+host.raspberrypi object system.adapter.admin.0.memHeapTotal created
+host.raspberrypi object system.adapter.admin.0.memHeapUsed created
+host.raspberrypi object system.adapter.admin.0.cputime created
+host.raspberrypi object system.adapter.admin.0.cpu created
+host.raspberrypi object system.adapter.admin.0.compactMode created
+host.raspberrypi object system.adapter.admin.0.connected created
+host.raspberrypi object system.adapter.admin.0.alive created
+host.raspberrypi Set default value of admin.0.info.updatesList:
+host.raspberrypi Set default value of admin.0.info.connection:
+host.raspberrypi object system.adapter.admin.0 created
+library: loaded
+Library version=2021-08-05
+
+==========================================================================
+
+    Welcome to the ioBroker installation fixer!
+    Script version: 2021-04-07
+
+    You might need to enter your password a couple of times.
+
+==========================================================================
+
+
+==========================================================================
+    Installing prerequisites (1/3)
+==========================================================================
+
+Hit:1 http://raspbian.raspberrypi.org/raspbian buster InRelease
+Hit:2 http://archive.raspberrypi.org/debian buster InRelease
+Hit:3 https://deb.nodesource.com/node_12.x buster InRelease
+Reading package lists...
+Installed gcc-c++
+
+==========================================================================
+    Checking ioBroker user and directory permissions (2/3)
+==========================================================================
+
+Created /etc/sudoers.d/iobroker
+Fixing directory permissions...
+
+==========================================================================
+    Checking autostart (3/3)
+==========================================================================
+
+Enabling autostart...
+Autostart enabled!
+
+==========================================================================
+
+    Your installation was fixed successfully
+    Run iobroker start to start ioBroker again!
+
+==========================================================================
+
+
+> esbuild@0.11.23 postinstall /home/pi/node_modules/esbuild
+> node install.js
+
+
+> @root/acme@3.1.0 postinstall /home/pi/node_modules/@root/acme
+> node scripts/postinstall
+
+
+> diskusage@1.1.3 install /home/pi/node_modules/diskusage
+> node-gyp rebuild
+
+make: Entering directory '/home/pi/node_modules/diskusage/build'
+  CXX(target) Release/obj.target/diskusage/src/main.o
+In file included from ../../nan/nan.h:58,
+                 from ../src/main.cpp:3:
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:736:43: warning: cast between incompatible function types from ÔÇÿvoid (*)(v8::Local<v8::Object>)ÔÇÖ to ÔÇÿnode::addon_register_funcÔÇÖ {aka ÔÇÿvoid (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)ÔÇÖ} [-Wcast-function-type]
+       (node::addon_register_func) (regfunc),                          \
+                                           ^
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:770:3: note: in expansion of macro ÔÇÿNODE_MODULE_XÔÇÖ
+   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+   ^~~~~~~~~~~~~
+../src/main.cpp:42:1: note: in expansion of macro ÔÇÿNODE_MODULEÔÇÖ
+ NODE_MODULE(diskusage, Init)
+ ^~~~~~~~~~~
+  CXX(target) Release/obj.target/diskusage/src/diskusage_posix.o
+  SOLINK_MODULE(target) Release/obj.target/diskusage.node
+  COPY Release/diskusage.node
+make: Leaving directory '/home/pi/node_modules/diskusage/build'
+
+> iobroker.js-controller@3.3.15 preinstall /home/pi/node_modules/iobroker.js-controller
+> node lib/preinstallCheck.js
+
+NPM version: 6.14.14
+
+> iobroker.js-controller@3.3.15 install /home/pi/node_modules/iobroker.js-controller
+> node iobroker.js setup first
+
+object _design/custom updated
+object _design/system updated
+←[31m
+ATTENTION: Error reporting via Sentry will be activated on next start of ioBroker
+←[33m
+ioBroker wants to make sure to deliver the most stable smart home system.
+To allow this we decided to implement an automatic error and crash reporting solution into the js-controller and also into adapters.
+
+THIS REPORTING WILL BE ENABLED WITH THE NEXT START OF YOUR IOBROKER!
+
+For any error that leads to the crash of the js-controller or one of the relevant adapters the error details are send to a server. For the js-controller and core adapters this server is located and operated in germany. For community adapters please check the Github Readme of the affected adapter for details which Sentry server is used.
+
+If you want to disable the error reporting you can use the command
+'iobroker plugin disable sentry'
+This command will also make sure that no adapter that runs on this host will send crash reporting data to sentry.
+
+←[0m
+
+> unix-dgram@2.0.3 install /home/pi/node_modules/unix-dgram
+> node-gyp rebuild
+
+make: Entering directory '/home/pi/node_modules/unix-dgram/build'
+  CXX(target) Release/obj.target/unix_dgram/src/unix_dgram.o
+In file included from ../../nan/nan.h:58,
+                 from ../src/unix_dgram.cc:5:
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:736:43: warning: cast between incompatible function types from ÔÇÿvoid (*)(v8::Local<v8::Object>)ÔÇÖ to ÔÇÿnode::addon_register_funcÔÇÖ {aka ÔÇÿvoid (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)ÔÇÖ} [-Wcast-function-type]
+       (node::addon_register_func) (regfunc),                          \
+                                           ^
+/home/pi/.cache/node-gyp/12.22.5/include/node/node.h:770:3: note: in expansion of macro ÔÇÿNODE_MODULE_XÔÇÖ
+   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+   ^~~~~~~~~~~~~
+../src/unix_dgram.cc:404:1: note: in expansion of macro ÔÇÿNODE_MODULEÔÇÖ
+ NODE_MODULE(unix_dgram, Initialize)
+ ^~~~~~~~~~~
+  SOLINK_MODULE(target) Release/obj.target/unix_dgram.node
+  COPY Release/unix_dgram.node
+make: Leaving directory '/home/pi/node_modules/unix-dgram/build'
+
+> ursa-optional@0.9.10 install /home/pi/node_modules/ursa-optional
+> node rebuild.js
+
+ursaNative bindings compilation fail. This is not an issue. Modules that depend on it will use fallbacks.
+@alcalzone/esbuild-register@2.5.1-1 /home/pi/node_modules/@alcalzone/esbuild-register
+esbuild@0.11.23 /home/pi/node_modules/esbuild
+jsonc-parser@3.0.0 /home/pi/node_modules/jsonc-parser
+@alcalzone/jsonl-db@1.3.0 /home/pi/node_modules/@alcalzone/jsonl-db
+alcalzone-shared@3.0.4 /home/pi/node_modules/alcalzone-shared
+debug@4.3.2 /home/pi/node_modules/debug
+ms@2.1.2 /home/pi/node_modules/ms
+fs-extra@9.1.0 /home/pi/node_modules/fs-extra
+at-least-node@1.0.0 /home/pi/node_modules/at-least-node
+graceful-fs@4.2.8 /home/pi/node_modules/graceful-fs
+jsonfile@6.1.0 /home/pi/node_modules/jsonfile
+universalify@2.0.0 /home/pi/node_modules/universalify
+proper-lockfile@4.1.2 /home/pi/node_modules/proper-lockfile
+retry@0.12.0 /home/pi/node_modules/retry
+signal-exit@3.0.3 /home/pi/node_modules/signal-exit
+@dabh/diagnostics@2.0.2 /home/pi/node_modules/@dabh/diagnostics
+colorspace@1.1.2 /home/pi/node_modules/colorspace
+color@3.0.0 /home/pi/node_modules/color
+color-convert@1.9.3 /home/pi/node_modules/color-convert
+color-name@1.1.3 /home/pi/node_modules/color-name
+color-string@1.6.0 /home/pi/node_modules/color-string
+simple-swizzle@0.2.2 /home/pi/node_modules/simple-swizzle
+is-arrayish@0.3.2 /home/pi/node_modules/is-arrayish
+text-hex@1.0.0 /home/pi/node_modules/text-hex
+enabled@2.0.0 /home/pi/node_modules/enabled
+kuler@2.0.0 /home/pi/node_modules/kuler
+@greenlock/manager@3.1.0 /home/pi/node_modules/@greenlock/manager
+greenlock-manager-fs@3.1.1 /home/pi/node_modules/greenlock-manager-fs
+@root/mkdirp@1.0.0 /home/pi/node_modules/@root/mkdirp
+safe-replace@1.1.0 /home/pi/node_modules/safe-replace
+@iobroker/db-base@1.2.4 /home/pi/node_modules/@iobroker/db-base
+deep-clone@3.0.3 /home/pi/node_modules/deep-clone
+node.extend@2.0.2 /home/pi/node_modules/node.extend
+has@1.0.3 /home/pi/node_modules/has
+function-bind@1.1.1 /home/pi/node_modules/function-bind
+is@3.3.0 /home/pi/node_modules/is
+respjs@4.2.0 /home/pi/node_modules/respjs
+@iobroker/db-objects-file@1.2.7 /home/pi/node_modules/@iobroker/db-objects-file
+@iobroker/db-objects-redis@1.2.7 /home/pi/node_modules/@iobroker/db-objects-redis
+ioredis@4.27.8 /home/pi/node_modules/ioredis
+cluster-key-slot@1.1.0 /home/pi/node_modules/cluster-key-slot
+denque@1.5.1 /home/pi/node_modules/denque
+lodash.defaults@4.2.0 /home/pi/node_modules/lodash.defaults
+lodash.flatten@4.4.0 /home/pi/node_modules/lodash.flatten
+lodash.isarguments@3.1.0 /home/pi/node_modules/lodash.isarguments
+p-map@2.1.0 /home/pi/node_modules/p-map
+redis-commands@1.7.0 /home/pi/node_modules/redis-commands
+redis-errors@1.2.0 /home/pi/node_modules/redis-errors
+redis-parser@3.0.0 /home/pi/node_modules/redis-parser
+standard-as-callback@2.1.0 /home/pi/node_modules/standard-as-callback
+@iobroker/db-objects-jsonl@1.2.7 /home/pi/node_modules/@iobroker/db-objects-jsonl
+@iobroker/db-states-file@1.2.7 /home/pi/node_modules/@iobroker/db-states-file
+@iobroker/db-states-redis@1.2.7 /home/pi/node_modules/@iobroker/db-states-redis
+@iobroker/db-states-jsonl@1.2.7 /home/pi/node_modules/@iobroker/db-states-jsonl
+@iobroker/plugin-base@1.2.1 /home/pi/node_modules/@iobroker/plugin-base
+@iobroker/plugin-sentry@1.1.10 /home/pi/node_modules/@iobroker/plugin-sentry
+@sentry/integrations@6.11.0 /home/pi/node_modules/@sentry/integrations
+@sentry/types@6.11.0 /home/pi/node_modules/@sentry/types
+@sentry/utils@6.11.0 /home/pi/node_modules/@sentry/utils
+tslib@1.14.1 /home/pi/node_modules/tslib
+localforage@1.10.0 /home/pi/node_modules/localforage
+lie@3.1.1 /home/pi/node_modules/lie
+immediate@3.0.6 /home/pi/node_modules/immediate
+@sentry/node@6.11.0 /home/pi/node_modules/@sentry/node
+@sentry/core@6.11.0 /home/pi/node_modules/@sentry/core
+@sentry/hub@6.11.0 /home/pi/node_modules/@sentry/hub
+@sentry/minimal@6.11.0 /home/pi/node_modules/@sentry/minimal
+@sentry/tracing@6.11.0 /home/pi/node_modules/@sentry/tracing
+cookie@0.4.1 /home/pi/node_modules/cookie
+https-proxy-agent@5.0.0 /home/pi/node_modules/https-proxy-agent
+agent-base@6.0.2 /home/pi/node_modules/agent-base
+lru_map@0.3.3 /home/pi/node_modules/lru_map
+source-map-support@0.5.19 /home/pi/node_modules/source-map-support
+buffer-from@1.1.2 /home/pi/node_modules/buffer-from
+source-map@0.6.1 /home/pi/node_modules/source-map
+@root/acme@3.1.0 /home/pi/node_modules/@root/acme
+@root/csr@0.8.1 /home/pi/node_modules/@root/csr
+@root/asn1@1.0.0 /home/pi/node_modules/@root/asn1
+@root/encoding@1.0.1 /home/pi/node_modules/@root/encoding
+@root/pem@1.0.4 /home/pi/node_modules/@root/pem
+@root/x509@0.7.2 /home/pi/node_modules/@root/x509
+@root/keypairs@0.10.3 /home/pi/node_modules/@root/acme/node_modules/@root/keypairs
+@root/request@1.7.0 /home/pi/node_modules/@root/request
+@root/greenlock@4.0.5 /home/pi/node_modules/@root/greenlock
+@root/keypairs@0.10.3 /home/pi/node_modules/@root/greenlock/node_modules/@root/keypairs
+acme-http-01-standalone@3.0.5 /home/pi/node_modules/acme-http-01-standalone
+cert-info@1.5.1 /home/pi/node_modules/cert-info
+greenlock-store-fs@3.2.2 /home/pi/node_modules/greenlock-store-fs
+@root/greenlock-express@4.0.4 /home/pi/node_modules/@root/greenlock-express
+redirect-https@1.3.1 /home/pi/node_modules/redirect-https
+escape-html@1.0.3 /home/pi/node_modules/escape-html
+@root/keypairs@0.9.0 /home/pi/node_modules/@root/keypairs
+ajv@6.12.6 /home/pi/node_modules/ajv
+fast-deep-equal@3.1.3 /home/pi/node_modules/fast-deep-equal
+fast-json-stable-stringify@2.1.0 /home/pi/node_modules/fast-json-stable-stringify
+json-schema-traverse@0.4.1 /home/pi/node_modules/json-schema-traverse
+uri-js@4.4.1 /home/pi/node_modules/uri-js
+punycode@2.1.1 /home/pi/node_modules/punycode
+ansi-regex@5.0.0 /home/pi/node_modules/ansi-regex
+ansi-styles@4.3.0 /home/pi/node_modules/ansi-styles
+color-convert@2.0.1 /home/pi/node_modules/ansi-styles/node_modules/color-convert
+color-name@1.1.4 /home/pi/node_modules/ansi-styles/node_modules/color-name
+anymatch@3.1.2 /home/pi/node_modules/anymatch
+normalize-path@3.0.0 /home/pi/node_modules/normalize-path
+picomatch@2.3.0 /home/pi/node_modules/picomatch
+asn1@0.2.4 /home/pi/node_modules/asn1
+safer-buffer@2.1.2 /home/pi/node_modules/safer-buffer
+assert-plus@1.0.0 /home/pi/node_modules/assert-plus
+async@0.9.2 /home/pi/node_modules/async
+asynckit@0.4.0 /home/pi/node_modules/asynckit
+aws-sign2@0.7.0 /home/pi/node_modules/aws-sign2
+aws4@1.11.0 /home/pi/node_modules/aws4
+bcrypt-pbkdf@1.0.2 /home/pi/node_modules/bcrypt-pbkdf
+tweetnacl@0.14.5 /home/pi/node_modules/tweetnacl
+binary-extensions@2.2.0 /home/pi/node_modules/binary-extensions
+bindings@1.5.0 /home/pi/node_modules/bindings
+file-uri-to-path@1.0.0 /home/pi/node_modules/file-uri-to-path
+braces@3.0.2 /home/pi/node_modules/braces
+fill-range@7.0.1 /home/pi/node_modules/fill-range
+to-regex-range@5.0.1 /home/pi/node_modules/to-regex-range
+is-number@7.0.0 /home/pi/node_modules/is-number
+buffer-equal-constant-time@1.0.1 /home/pi/node_modules/buffer-equal-constant-time
+call-bind@1.0.2 /home/pi/node_modules/call-bind
+get-intrinsic@1.1.1 /home/pi/node_modules/get-intrinsic
+has-symbols@1.0.2 /home/pi/node_modules/has-symbols
+callsite@1.0.0 /home/pi/node_modules/callsite
+caseless@0.12.0 /home/pi/node_modules/caseless
+chokidar@3.5.2 /home/pi/node_modules/chokidar
+glob-parent@5.1.2 /home/pi/node_modules/glob-parent
+is-glob@4.0.1 /home/pi/node_modules/is-glob
+is-extglob@2.1.1 /home/pi/node_modules/is-extglob
+is-binary-path@2.1.0 /home/pi/node_modules/is-binary-path
+readdirp@3.6.0 /home/pi/node_modules/readdirp
+chownr@2.0.0 /home/pi/node_modules/chownr
+cliui@7.0.4 /home/pi/node_modules/cliui
+string-width@4.2.2 /home/pi/node_modules/string-width
+emoji-regex@8.0.0 /home/pi/node_modules/emoji-regex
+is-fullwidth-code-point@3.0.0 /home/pi/node_modules/is-fullwidth-code-point
+strip-ansi@6.0.0 /home/pi/node_modules/strip-ansi
+wrap-ansi@7.0.0 /home/pi/node_modules/wrap-ansi
+colors@1.4.0 /home/pi/node_modules/colors
+combined-stream@1.0.8 /home/pi/node_modules/combined-stream
+delayed-stream@1.0.0 /home/pi/node_modules/delayed-stream
+core-util-is@1.0.2 /home/pi/node_modules/core-util-is
+cron-parser@3.5.0 /home/pi/node_modules/cron-parser
+is-nan@1.3.2 /home/pi/node_modules/is-nan
+define-properties@1.1.3 /home/pi/node_modules/define-properties
+object-keys@1.1.1 /home/pi/node_modules/object-keys
+luxon@1.28.0 /home/pi/node_modules/luxon
+cycle@1.0.3 /home/pi/node_modules/cycle
+daemonize2@0.4.2 /home/pi/node_modules/daemonize2
+dashdash@1.14.1 /home/pi/node_modules/dashdash
+decache@4.6.0 /home/pi/node_modules/decache
+diskusage@1.1.3 /home/pi/node_modules/diskusage
+es6-promise@4.2.8 /home/pi/node_modules/es6-promise
+nan@2.15.0 /home/pi/node_modules/nan
+duplexer@0.1.2 /home/pi/node_modules/duplexer
+ecc-jsbn@0.1.2 /home/pi/node_modules/ecc-jsbn
+jsbn@0.1.1 /home/pi/node_modules/jsbn
+ecdsa-sig-formatter@1.0.11 /home/pi/node_modules/ecdsa-sig-formatter
+safe-buffer@5.2.1 /home/pi/node_modules/safe-buffer
+eckles@1.4.1 /home/pi/node_modules/eckles
+escalade@3.1.1 /home/pi/node_modules/escalade
+event-stream@4.0.1 /home/pi/node_modules/event-stream
+from@0.1.7 /home/pi/node_modules/from
+map-stream@0.0.7 /home/pi/node_modules/map-stream
+pause-stream@0.0.11 /home/pi/node_modules/pause-stream
+through@2.3.8 /home/pi/node_modules/through
+split@1.0.1 /home/pi/node_modules/split
+stream-combiner@0.2.2 /home/pi/node_modules/stream-combiner
+extend@3.0.2 /home/pi/node_modules/extend
+extsprintf@1.3.0 /home/pi/node_modules/extsprintf
+eyes@0.1.8 /home/pi/node_modules/eyes
+fast-safe-stringify@2.0.8 /home/pi/node_modules/fast-safe-stringify
+fecha@4.2.1 /home/pi/node_modules/fecha
+file-stream-rotator@0.5.7 /home/pi/node_modules/file-stream-rotator
+moment@2.29.1 /home/pi/node_modules/moment
+fn.name@1.1.0 /home/pi/node_modules/fn.name
+forever-agent@0.6.1 /home/pi/node_modules/forever-agent
+form-data@2.3.3 /home/pi/node_modules/form-data
+mime-types@2.1.32 /home/pi/node_modules/mime-types
+mime-db@1.49.0 /home/pi/node_modules/mime-db
+fs-minipass@2.1.0 /home/pi/node_modules/fs-minipass
+minipass@3.1.3 /home/pi/node_modules/minipass
+yallist@4.0.0 /home/pi/node_modules/yallist
+get-caller-file@2.0.5 /home/pi/node_modules/get-caller-file
+getpass@0.1.7 /home/pi/node_modules/getpass
+glossy@0.1.7 /home/pi/node_modules/glossy
+greenlock@4.0.4 /home/pi/node_modules/greenlock
+greenlock-express@4.0.3 /home/pi/node_modules/greenlock-express
+har-schema@2.0.0 /home/pi/node_modules/har-schema
+har-validator@5.1.5 /home/pi/node_modules/har-validator
+http-signature@1.2.0 /home/pi/node_modules/http-signature
+jsprim@1.4.1 /home/pi/node_modules/jsprim
+json-schema@0.2.3 /home/pi/node_modules/json-schema
+verror@1.10.0 /home/pi/node_modules/verror
+sshpk@1.16.1 /home/pi/node_modules/sshpk
+inherits@2.0.4 /home/pi/node_modules/inherits
+iobroker.js-controller@3.3.15 /home/pi/node_modules/iobroker.js-controller
+jsonwebtoken@8.5.1 /home/pi/node_modules/jsonwebtoken
+jws@3.2.2 /home/pi/node_modules/jws
+jwa@1.4.1 /home/pi/node_modules/jwa
+lodash.includes@4.3.0 /home/pi/node_modules/lodash.includes
+lodash.isboolean@3.0.3 /home/pi/node_modules/lodash.isboolean
+lodash.isinteger@4.0.4 /home/pi/node_modules/lodash.isinteger
+lodash.isnumber@3.0.3 /home/pi/node_modules/lodash.isnumber
+lodash.isplainobject@4.0.6 /home/pi/node_modules/lodash.isplainobject
+lodash.isstring@4.0.1 /home/pi/node_modules/lodash.isstring
+lodash.once@4.1.1 /home/pi/node_modules/lodash.once
+semver@5.7.1 /home/pi/node_modules/jsonwebtoken/node_modules/semver
+jszip@3.7.1 /home/pi/node_modules/jszip
+lie@3.3.0 /home/pi/node_modules/jszip/node_modules/lie
+pako@1.0.11 /home/pi/node_modules/pako
+readable-stream@2.3.7 /home/pi/node_modules/readable-stream
+isarray@1.0.0 /home/pi/node_modules/isarray
+process-nextick-args@2.0.1 /home/pi/node_modules/process-nextick-args
+safe-buffer@5.1.2 /home/pi/node_modules/readable-stream/node_modules/safe-buffer
+string_decoder@1.1.1 /home/pi/node_modules/string_decoder
+safe-buffer@5.1.2 /home/pi/node_modules/string_decoder/node_modules/safe-buffer
+util-deprecate@1.0.2 /home/pi/node_modules/util-deprecate
+set-immediate-shim@1.0.1 /home/pi/node_modules/set-immediate-shim
+loadavg-windows@1.1.1 /home/pi/node_modules/loadavg-windows
+weak-daemon@1.0.3 /home/pi/node_modules/weak-daemon
+mime@2.5.2 /home/pi/node_modules/mime
+ncp@2.0.0 /home/pi/node_modules/ncp
+node-forge@0.10.0 /home/pi/node_modules/node-forge
+node-schedule@2.0.0 /home/pi/node_modules/node-schedule
+long-timeout@0.1.1 /home/pi/node_modules/long-timeout
+sorted-array-functions@1.3.0 /home/pi/node_modules/sorted-array-functions
+pidusage@2.0.21 /home/pi/node_modules/pidusage
+promisify-child-process@4.1.1 /home/pi/node_modules/promisify-child-process
+prompt@1.2.0 /home/pi/node_modules/prompt
+read@1.0.7 /home/pi/node_modules/read
+mute-stream@0.0.8 /home/pi/node_modules/mute-stream
+revalidator@0.1.8 /home/pi/node_modules/revalidator
+winston@2.4.5 /home/pi/node_modules/prompt/node_modules/winston
+async@1.0.0 /home/pi/node_modules/prompt/node_modules/winston/node_modules/async
+colors@1.0.3 /home/pi/node_modules/prompt/node_modules/winston/node_modules/colors
+isstream@0.1.2 /home/pi/node_modules/isstream
+stack-trace@0.0.10 /home/pi/node_modules/stack-trace
+readline-sync@1.4.10 /home/pi/node_modules/readline-sync
+request@2.88.2 /home/pi/node_modules/request
+is-typedarray@1.0.0 /home/pi/node_modules/is-typedarray
+json-stringify-safe@5.0.1 /home/pi/node_modules/json-stringify-safe
+oauth-sign@0.9.0 /home/pi/node_modules/oauth-sign
+performance-now@2.1.0 /home/pi/node_modules/performance-now
+qs@6.5.2 /home/pi/node_modules/qs
+tough-cookie@2.5.0 /home/pi/node_modules/tough-cookie
+psl@1.8.0 /home/pi/node_modules/psl
+tunnel-agent@0.6.0 /home/pi/node_modules/tunnel-agent
+uuid@3.4.0 /home/pi/node_modules/uuid
+semver@7.3.5 /home/pi/node_modules/semver
+lru-cache@6.0.0 /home/pi/node_modules/lru-cache
+tar@6.1.11 /home/pi/node_modules/tar
+minizlib@2.1.2 /home/pi/node_modules/minizlib
+mkdirp@1.0.4 /home/pi/node_modules/mkdirp
+winston@3.3.3 /home/pi/node_modules/winston
+async@3.2.1 /home/pi/node_modules/winston/node_modules/async
+is-stream@2.0.1 /home/pi/node_modules/is-stream
+logform@2.2.0 /home/pi/node_modules/logform
+triple-beam@1.3.0 /home/pi/node_modules/triple-beam
+one-time@1.0.0 /home/pi/node_modules/one-time
+readable-stream@3.6.0 /home/pi/node_modules/winston/node_modules/readable-stream
+winston-transport@4.4.0 /home/pi/node_modules/winston-transport
+winston-daily-rotate-file@4.5.5 /home/pi/node_modules/winston-daily-rotate-file
+object-hash@2.2.0 /home/pi/node_modules/object-hash
+yargs@16.2.0 /home/pi/node_modules/yargs
+require-directory@2.1.1 /home/pi/node_modules/require-directory
+y18n@5.0.8 /home/pi/node_modules/y18n
+yargs-parser@20.2.9 /home/pi/node_modules/yargs-parser
+keypairs@1.2.14 /home/pi/node_modules/keypairs
+rasha@1.2.5 /home/pi/node_modules/rasha
+le-acme-core@2.1.4 /home/pi/node_modules/le-acme-core
+rsa-compat@1.9.4 /home/pi/node_modules/rsa-compat
+node-forge@0.7.6 /home/pi/node_modules/rsa-compat/node_modules/node-forge
+le-challenge-fs@2.0.9 /home/pi/node_modules/le-challenge-fs
+le-sni-auto@2.1.9 /home/pi/node_modules/le-sni-auto
+seq-logging@0.4.6 /home/pi/node_modules/seq-logging
+unix-dgram@2.0.3 /home/pi/node_modules/unix-dgram
+ursa-optional@0.9.10 /home/pi/node_modules/ursa-optional
+winston-seq-updated@1.0.4 /home/pi/node_modules/winston-seq-updated
+winston-syslog@2.4.4 /home/pi/node_modules/winston-syslog
+Used repository: stable
+hash unchanged, use cached sources
+update done
+Adapter    "admin"         : 5.1.23   , installed 5.1.23
+Adapter    "backitup"      : 2.1.17   , installed 2.1.17
+Adapter    "discovery"     : 2.7.0    , installed 2.7.0
+Controller "js-controller" : 3.3.15   , installed 3.3.15
+Host    "raspberrypi"    is up to date.
+All adapters are up to date
+No connection to databases possible ...
+
+C:\Users\es210\Downloads\ioBrokerBackupInstallTool-master\InstallBackupTool\ioBrokerTool\Programm\Programm>

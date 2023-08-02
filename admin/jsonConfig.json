@@ -1,0 +1,20 @@
+{
+    "i18n":true,
+    "type": "panel",
+    "items": {
+        "_options":{
+            "type": "panel",
+            "label":"Options",
+            "items": {
+                "serverIp":{
+                    "type": "text",
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 6,
+                    "label": "Server",
+                    "help": "IP or hostname of TERACOM TCW181B-CM I/O module"
+                }
+            }
+        }
+    }
+}

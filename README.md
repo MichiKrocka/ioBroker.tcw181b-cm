@@ -15,8 +15,7 @@
 ## Changelog
 
 ### **WORK IN PROGRESS**
-* (Michael Krocka) initial release
-
+* (Michael Krocka) TCW181B-CM Options
 ### 0.0.1 (02.08.2023)
 - Integrate TCW181B-CM
 
