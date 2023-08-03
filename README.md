@@ -16,6 +16,7 @@
 
 ### **WORK IN PROGRESS**
 * (Michael Krocka) TCW181B-CM Options
+* (Michael Krocka) Get module informations
 ### 0.0.1 (02.08.2023)
 - Integrate TCW181B-CM
 

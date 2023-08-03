@@ -83,5 +83,120 @@
         "serverIp": "192.168.1.2"
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id":"deviceInfo",
+            "type":"channel",
+            "common":{
+                "name": {
+                    "en": "Device informations",
+                    "de": "Geräteinformationen",
+                    "ru": "Информация об устройстве",
+                    "pt": "InformaÃ§Ãμes do dispositivo",
+                    "nl": "Vernietig informatie",
+                    "fr": "Informations sur les appareils",
+                    "it": "Informazioni sul dispositivo",
+                    "es": "Información sobre dispositivos",
+                    "pl": "Informacja o Device",
+                    "uk": "Інформація про прилади",
+                    "zh-cn": "资料"
+                  }
+            },
+            "native":{
+
+            }
+        },
+        {
+            "_id":"deviceInfo.Device",
+            "type":"state",
+            "common":{
+                "role":"text",
+                "name":{
+                    "en": "Device",
+                    "de": "Gerät",
+                    "ru": "Устройства",
+                    "pt": "Dispositivo",
+                    "nl": "Vernietiging",
+                    "fr": "Dispositif",
+                    "it": "Dispositivo",
+                    "es": "Dispositivo",
+                    "pl": "Device",
+                    "uk": "Пристрої",
+                    "zh-cn": "证人"
+                  },
+                "type":"string",
+                "read":true,
+                "write":false
+            }
+        },
+        {
+            "_id":"deviceInfo.ID",
+            "type":"state",
+            "common":{
+                "role":"text",
+                "name":"ID",
+                "type":"string",
+                "read":true,
+                "write":false
+            }
+        },
+        {
+            "_id":"deviceInfo.Hostname",
+            "type":"state",
+            "common":{
+                "role":"text",
+                "name":{
+                    "en": "Hostname",
+                    "de": "Hostname",
+                    "ru": "Имя",
+                    "pt": "Nome do anfitrião",
+                    "nl": "Heetnaam",
+                    "fr": "Hostname",
+                    "it": "Nome host",
+                    "es": "Nombre de host",
+                    "pl": "Hostname",
+                    "uk": "Логін",
+                    "zh-cn": "人质"
+                  },
+                "type":"string",
+                "read":true,
+                "write":false
+            }
+        },
+        {
+            "_id":"deviceInfo.FW",
+            "type":"state",
+            "common":{
+                "role":"text",
+                "name":"Firmware",
+                "type":"string",
+                "read":true,
+                "write":false
+            }
+        },
+        {
+            "_id":"deviceInfo.online",
+            "type":"state",
+            "common":{
+                "role":"indicator.connected",
+                "name":{
+                    "en": "Device connected",
+                    "de": "Gerät angeschlossen",
+                    "ru": "Устройство подключено",
+                    "pt": "Dispositivo conectado",
+                    "nl": "Device verbonden",
+                    "fr": "Appareil connecté",
+                    "it": "Dispositivo collegato",
+                    "es": "Dispositivo conectado",
+                    "pl": "Device connected",
+                    "uk": "Пристрій підключений",
+                    "zh-cn": "D. 证人联系"
+                  },
+                "type":"boolean",
+                "read":true,
+                "write":false,
+                "def":false
+            }
+        }
+    ]
 }
