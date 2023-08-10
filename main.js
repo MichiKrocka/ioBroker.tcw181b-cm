@@ -6,8 +6,8 @@
 
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
-const utils   = require('@iobroker/adapter-core');
-const http    = require('http');
+const utils  = require('@iobroker/adapter-core');
+const http   = require('http');
 const xml2js = require('xml2js');
 const parser = new xml2js.Parser({
     trim: true,
@@ -17,7 +17,6 @@ const parser = new xml2js.Parser({
 // const fs = require("fs");
 
 class Tcw181bCm extends utils.Adapter {
-
     /**
      * @param {Partial<utils.AdapterOptions>} [options={}]
      */
@@ -32,53 +31,229 @@ class Tcw181bCm extends utils.Adapter {
         // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
+    Relays = []
     /**
      * Get xml-data and/or set module parameter.
      */
-    async xmlGetSet(parameter = '') {
+    xmlGetSet(parameter = '') {
         const self = this;
 
-        await this.setStateAsync('deviceInfo.online',   {val: false, ack: true});
-        http.get(`http://${this.config.serverIp}/status.xml`, {
-            headers: {
-                Accept: 'application/xml'
-            }
-        },
-        res => {
-            let D = '';
+        //console.log('LOAD');
+        return new Promise((resolve, reject) => {
+            http.get(`http://${this.config.serverIp}/status.xml?${parameter}`, {
+                headers: {
+                    Accept: 'application/xml',
+                },
+                timeout: 5000,
+            },
+            res => {
+                let D = '';
 
-            res.setEncoding('utf8');
-            res.on('data', xml => {
-                D += xml.toString();
-            }).on('end', () => {
-                parser.parseString(D, async function (err, r) {
-                    if (err) {
-                        self.log.error(err.toString());
-                        return;
-                    }
-                    r = r.Monitor;
-                    console.log(JSON.stringify(r, null, 2));
-                    await self.setStateAsync('deviceInfo.online', {val: true, ack: true});
-                    for (const o of ['Device', 'ID', 'Hostname', 'FW']) {
-                        await self.setStateAsync(`deviceInfo.${o}`, {val: r[o][0], ack: true});
-                    }
+                res.setEncoding('utf8');
+                res.on('data', xml => {
+                    D += xml.toString();
+                }).on('end', () => {
+                    parser.parseString(D, async function (err, r) {
+                        if (err) {
+                            self.log.error(err.toString());
+                            return;
+                        }
+                        resolve(r.Monitor);
+                    });
                 });
-
+            }).on('error', err => {
+                self.log.error(err.toString());
+                reject(err);
+            }).on('timeout', () => {
+                self.log.error('HTTP Timeout');
+                reject(new Error('HTTP Timeout'));
             });
-        }).on('error', err => {
-            self.log.error(err.toString());
         });
-
     }
+
     /**
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
+        const self = this;
         this.log.debug(`Current IP ${this.config.serverIp}`);
         this.subscribeObjects('serverIp');
-        this.xmlGetSet.call(this);
+        try {
+            let xml = await this.xmlGetSet.call(this);
 
-        //await this.setStateAsync("");
+            //console.log(JSON.stringify(xml, null, 2));
+            //await this.delObject('digitalinput');
+
+            await this.setObjectNotExists('digitalinput', {
+                'type':'channel',
+                'common':{
+                    'name': {
+                        'en': 'Digital input',
+                        'de': 'Digitaler Eingang',
+                        'ru': 'Цифровой вход',
+                        'pt': 'Entrada digital',
+                        'nl': 'Digitale input',
+                        'fr': 'Entrée numérique',
+                        'it': 'Ingresso digitale',
+                        'es': 'Entrada digital',
+                        'pl': 'Digital dane',
+                        'uk': 'Цифровий вхід',
+                        'zh-cn': '数字投入'
+                    }
+                },
+                'native':{
+                }
+            });
+
+            for (const o of ['DigitalInputDescription', 'DigitalInput']) {
+                //await this.delObject(`digitalinput.${o}`);
+                await self.setObjectNotExists(`digitalinput.${o}`, {
+                    'type': 'state',
+                    'common': {
+                        'role': 'text',
+                        'name': o,
+                        'type': 'string',
+                        'read': true,
+                        'write': false
+                    },
+                    native: {},
+                });
+                await this.setStateAsync(`digitalinput.${o}`, {val: xml[o][0], ack: true});
+            }
+
+            await this.setObjectNotExists('relays', {
+                'type':'channel',
+                'common':{
+                    'name': {
+                        "en": "Relay",
+                        "de": "Relais",
+                        "ru": "Реле",
+                        "pt": "Reposição",
+                        "nl": "Vertaling:",
+                        "fr": "Relay",
+                        "it": "Relè",
+                        "es": "Relay",
+                        "pl": "Relay",
+                        "uk": "Реле",
+                        "zh-cn": "拖延"
+                    }
+                },
+                'native':{
+                }
+            });
+
+            for (let i = 1;;i++) {
+                let o = `Relay${i}Description`;
+
+                if (xml[o] == undefined)
+                    break;
+
+                //await this.delObject(`relays.${o}`);
+                await self.setObjectNotExists(`relays.${o}`, {
+                    'type': 'state',
+                    'common': {
+                        'role': 'text',
+                        'name': o,
+                        'type': 'string',
+                        'read': true,
+                        'write': false
+                    },
+                    native: {},
+                });
+                await this.setStateAsync(`relays.${o}`, {val: xml[o][0], ack: true});
+
+                o = `pw${i}`;
+                //await this.delObject(`relays.${o}`);
+                await self.setObjectNotExists(`relays.Relay${i}Pw`, {
+                    'type': 'state',
+                    'common': {
+                        'role': 'text',
+                        'name': o,
+                        'type': 'number',
+                        'read': true,
+                        'write': false
+                    },
+                    native: {},
+                });
+                await this.setStateAsync(`relays.Relay${i}Pw`, {val: parseFloat(xml[o][0]), ack: true});
+
+                o = `Relay${i}`;
+                //await this.delObject(`relays.${o}`);
+                await self.setObjectNotExists(`relays.${o}`, {
+                    'type': 'state',
+                    'common': {
+                        'role': 'text',
+                        'name': o,
+                        'type': 'boolean',
+                        'read': true,
+                        'write': true
+                    },
+                    native: {},
+                });
+
+                this.Relays[i] = xml[o][0];
+                await this.setStateAsync(`relays.${o}`, {val: xml[o][0] != 'OFF', ack: true});
+                await this.subscribeStates(`relays.${o}`);
+
+                await self.setObjectNotExists(`relays.${o}Pulse`, {
+                    'type': 'state',
+                    'common': {
+                        'role': 'text',
+                        'name': o,
+                        'type': 'boolean',
+                        'read': true,
+                        'write': true
+                    },
+                    native: {},
+                });
+                await this.setStateAsync(`relays.${o}Pulse`, {val: xml[o][0] == 'in pulse', ack: true});
+                await this.subscribeStates(`relays.${o}Pulse`);
+            }
+
+            await this.setStateAsync('deviceInfo.online', {val: true, ack: true});
+            for (const o of ['Device', 'ID', 'Hostname', 'FW']) {
+                await this.setStateAsync(`deviceInfo.${o}`, {val: xml[o][0], ack: true});
+            }
+        } catch (err) {
+            await this.setStateAsync('deviceInfo.online', {val: false, ack: true});
+        }
+
+
+        this.T = setTimeout(polling, this.config.polling);
+
+        async function polling() {
+            try {
+                let xml = await self.xmlGetSet.call(self);
+
+                await self.setStateAsync('deviceInfo.online', {val: true, ack: true});
+                for (let i = 1;;i++) {
+                    let o = `Relay${i}`;
+
+                    if (xml[o] == undefined)
+                        break;
+
+                    if (self.Relays[i] != xml[o][0]) {
+                        let pulseId  = `relays.${o}Pulse`,
+                            relayId  = `relays.${o}`;
+
+                        if (xml[o][0] == 'in pulse') {
+                            await self.setStateAsync(relayId, {val: self.Relays[i] == 'OFF', ack: true});
+                            await self.setStateAsync(pulseId, {val: true, ack: true});
+                        } else {
+                            await self.setStateAsync(relayId, {val: xml[o][0] != 'OFF', ack: true});
+                            await self.setStateAsync(pulseId, {val: false, ack: true});
+                        }
+                        self.Relays[i] = xml[o][0];
+                    }
+                }
+
+                self.T = setTimeout(polling, self.config.polling);
+            } catch (err) {
+                await self.setStateAsync('deviceInfo.online', {val: false, ack: true});
+                self.T = setTimeout(polling, 50000);
+            }
+        }
+
 /*
         // Initialize your adapter here
 
@@ -126,13 +301,14 @@ class Tcw181bCm extends utils.Adapter {
 
         // same thing, but the state is deleted after 30s (getState will return null afterwards)
 //        await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
-
+        /*
         // examples for the checkPassword/checkGroup functions
         let result = await this.checkPasswordAsync('admin', 'iobroker');
         this.log.info('check user admin pw iobroker: ' + result);
 
         result = await this.checkGroupAsync('admin', 'admin');
         this.log.info('check group user admin group admin: ' + result);
+        */
     }
 
     /**
@@ -146,7 +322,8 @@ class Tcw181bCm extends utils.Adapter {
             // clearTimeout(timeout2);
             // ...
             // clearInterval(interval1);
-
+            if (this.T)
+                clearTimeout(T);
             callback();
         } catch (e) {
             callback();
@@ -161,7 +338,7 @@ class Tcw181bCm extends utils.Adapter {
      * @param {ioBroker.Object | null | undefined} obj
      */
     onObjectChange(id, obj) {
-        console.log(1111, id , JSON.stringify(obj));
+        console.log('onObjectChange', id , JSON.stringify(obj));
         if (obj) {
 //            this.xmlGetSet.call(this);
             // The object was changed
@@ -177,13 +354,21 @@ class Tcw181bCm extends utils.Adapter {
      * @param {string} id
      * @param {ioBroker.State | null | undefined} state
      */
-    onStateChange(id, state) {
-        if (state) {
-            // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-        } else {
-            // The state was deleted
-            this.log.info(`state ${id} deleted`);
+    async onStateChange(id, state) {
+
+        if (!state)
+            return;
+        if (!state.ack) {
+            let a = id.match(/.*Relay(\d)$/);
+            if (a) {
+                await this.xmlGetSet.call(this, `r${a[1]}=${state.val ? 1 : 0}`);
+                return;
+            }
+
+            a = id.match(/.*Relay(\d)Pulse$/);
+            if (a) {
+                await this.xmlGetSet.call(this, `pl${a[1]}=1`);
+            }
         }
     }
 
