@@ -80,7 +80,8 @@
         ]
     },
     "native": {
-        "serverIp": "192.168.1.2"
+        "serverIp": "192.168.1.2",
+        "polling": 2000
     },
     "objects": [],
     "instanceObjects": [
@@ -194,7 +195,7 @@
                   },
                 "type":"boolean",
                 "read":true,
-                "write":false,
+                "write":true,
                 "def":false
             }
         }

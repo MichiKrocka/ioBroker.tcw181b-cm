@@ -1,5 +1,7 @@
 {
     "Options":"Options",
     "Server": "Server",
-    "IP or hostname of TERACOM TCW181B-CM I/O module": "IP or hostname of TERACOM TCW181B-CM I/O module"
+    "IP or hostname of TERACOM TCW181B-CM I/O module": "IP or hostname of TERACOM TCW181B-CM I/O module",
+    "Polling": "Polling",
+    "Polling time": "Polling time"
 }
